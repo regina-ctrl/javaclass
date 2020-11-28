@@ -1,5 +1,5 @@
 /*
-    Here's my fancy shmacny comment.
+    This is my first HelloWorld Project 
  */
 public class Main {
     public static void main(String args[]) {
