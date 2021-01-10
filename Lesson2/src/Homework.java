@@ -28,7 +28,7 @@ public class Homework {
         //   2) The vehicle must get 13 mpg or less; race cars are inefficient AF! NOTE: This value can't be zero ornegative!
         //   3) The vechiel must be a manual.
 
-        if (numWheels == 4 && mpg > 0 && mpg <= 13 && isManual == true ) {
+        if (numWheels == 4 && mpg > 0 && mpg <= 13 && isManual == true) {
             return true;
         }
         return false;
