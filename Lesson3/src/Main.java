@@ -9,7 +9,13 @@ public class Main {
         //sqrRoot();
         //decreasingForLoop();
         //commaForLoop();
-        sInputForTest();
+       // sInputForTest();
+        //theWhileLoop();
+        //power();
+        //doWhileLoop();
+        //breakDemo();
+        //breakWithInputDemo();
+        breakWithNestedDemo();
     }
 
     private static void keyBoardInput() throws java.io.IOException {
@@ -142,5 +148,76 @@ public class Main {
         for(i = 0; (char) System.in.read() != 'S'; i++) {
             System.out.println("Pass #" + i);
         }
+    }
+
+    public static void theWhileLoop() {
+        char ch;
+        // print the alphabet using a while loop
+        ch = 'a';
+        while (ch <= 'z') {
+            System.out.print(ch++);
+        }
+    }
+
+    public static void power() {
+        int exponent;
+        int result;
+        for (int i = 0; i < 10; i++) {
+            result = 1;
+            exponent = i;
+            while (exponent > 0) {
+                result *= 2;
+                exponent--;
+            }
+            System.out.println("2 to the " + i + " power is " + result);
+        }
+    }
+
+    public static void doWhileLoop() throws java.io.IOException {
+        char ch;
+        do {
+            System.out.print("Press a key followed by ENTER: ");
+            ch = (char) System.in.read(); // get a char
+        } while (ch != 'q');
+    }
+
+    public static void breakDemo() {
+        int num = 100;
+        // loop while i-squared is less than num
+        for (int i = 0; i < num; i++) {
+            if (i * i >= num) {
+                break; // terminate loop if i*i >= 100
+            }
+            System.out.print(i + " ");
+        }
+        System.out.println("Loop complete.");
+    }
+
+    public static void breakWithInputDemo() throws java.io.IOException {
+        char ch;
+        for (; ; ) {
+            ch = (char) System.in.read(); // get a char
+            if (ch == 'q') {
+                break;
+            }
+        }
+        System.out.println("You pressed q!");
+    }
+
+    public static void breakWithNestedDemo() {
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Outer loop count: " + i);
+            System.out.print(" Inner loop count: ");
+            int t = 0;
+            while (t < 100) {
+                if (t == 10) {
+                    break; // terminate loop if t is 10
+                }
+                System.out.print(t + " ");
+                t++;
+            }
+            System.out.println();
+        }
+        System.out.println("Loops complete.");
     }
 }
