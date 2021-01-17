@@ -15,7 +15,10 @@ public class Main {
         //doWhileLoop();
         //breakDemo();
         //breakWithInputDemo();
-        breakWithNestedDemo();
+        //breakWithNestedDemo();
+        //break4();
+        //contDemo();
+        findFactor();
     }
 
     private static void keyBoardInput() throws java.io.IOException {
@@ -219,5 +222,51 @@ public class Main {
             System.out.println();
         }
         System.out.println("Loops complete.");
+    }
+
+    public static void break4() {
+        int i;
+        for (i = 1; i < 4; i++) {
+            one: {
+                two: {
+                    three: {
+                        System.out.println("\ni is " + i);
+                        if (i == 1) {
+                            break one;
+                        }
+                        if (i == 2) {
+                            break two;
+                        }
+                        if (i == 3) {
+                            break three;
+                        }
+                        // this is never reached
+                        System.out.println("won't print");
+                    }
+                    System.out.println("After block three.");
+                }
+                System.out.println("After block two.");
+            }
+            System.out.println("After block one.");
+        }
+        System.out.println("After for.");
+    }
+
+    public static void contDemo() {
+        int i;
+        // print even numbers between 0 and 100
+        for (i = 0; i <= 100; i++) {
+            if ((i % 2) != 0) continue; // iterate
+            System.out.println(i);
+        }
+    }
+
+    public static void findFactor() {
+        for (int i = 2; i <= 100; i++) {
+            System.out.print("Factors of " + i + ": ");
+            for (int j = 2; j < i; j++)
+                if ((i % j) == 0) System.out.print(j + " ");
+            System.out.println();
+        }
     }
 }
