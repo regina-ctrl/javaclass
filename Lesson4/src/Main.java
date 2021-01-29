@@ -1,4 +1,4 @@
-import java.security.InvalidParameterException;
+import classes.VehicleV2;
 
 public class Main {
 
@@ -9,26 +9,6 @@ public class Main {
             int passengers;     // number of passengers
             int fuelcap;        // fuel capacity in gallons
             int mpg;            // fuel consumption in miles per gallon
-
-            int getRange() {
-                return this.fuelcap * this.mpg;
-            }
-
-            boolean canCarry(int additionalPassengers) {
-                return (passengers + additionalPassengers) <= maxPassengers;
-            }
-
-            // Compute fuel needed for a given distance.
-            double fuelNeeded(int miles) {
-                return (double) miles / mpg;
-            }
-        }
-
-        class VehicleV2 {
-            private static final int maxPassengers = 25;
-            private int passengers;     // number of passengers
-            private int fuelcap;        // fuel capacity in gallons
-            private int mpg;            // fuel consumption in miles per gallon
 
             int getRange() {
                 return this.fuelcap * this.mpg;
@@ -78,8 +58,9 @@ public class Main {
 
         System.out.println(String.format("Is 5 a factor of 10: [%b]", isFactor(5,10)));
         System.out.println(String.format("Is 2 a factor of 7: [%b]", isFactor(2,7)));
+
         System.out.println("---------------------------------");
-        System.out.println("---VehicleV2 with Constructor----");
+        System.out.println("---obj.VehicleV2 with Constructor----");
         VehicleV2 myVehicleWithConstructor = new VehicleV2();
         myVehicleWithConstructor.fuelcap = 16;
         myVehicleWithConstructor.mpg = 10;
