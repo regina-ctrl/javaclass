@@ -5,13 +5,42 @@ public class Main {
     public static void main(String args[]) {
 
         class VehicleV1 {
+            private static final int maxPassengers = 25;
             int passengers;     // number of passengers
             int fuelcap;        // fuel capacity in gallons
             int mpg;            // fuel consumption in miles per gallon
 
+            int getRange() {
+                return this.fuelcap * this.mpg;
+            }
+
+            boolean canCarry(int additionalPassengers) {
+                return (passengers + additionalPassengers) <= maxPassengers;
+            }
+
+            // Compute fuel needed for a given distance.
+            double fuelNeeded(int miles) {
+                return (double) miles / mpg;
+            }
+        }
+
+        class VehicleV2 {
+            private static final int maxPassengers = 25;
+            private int passengers;     // number of passengers
+            private int fuelcap;        // fuel capacity in gallons
+            private int mpg;            // fuel consumption in miles per gallon
 
             int getRange() {
                 return this.fuelcap * this.mpg;
+            }
+
+            boolean canCarry(int additionalPassengers) {
+                return (passengers + additionalPassengers) <= maxPassengers;
+            }
+
+            // Compute fuel needed for a given distance.
+            double fuelNeeded(int miles) {
+                return (double) miles / mpg;
             }
         }
 
@@ -42,6 +71,28 @@ public class Main {
         int range = sportsCar.fuelcap * sportsCar.mpg;
         System.out.println(String.format("My sportscar range: [%d]", range));
         System.out.println(String.format("My sportscar range with getRange method: [%d]", sportsCar.getRange()));
+
+        System.out.println(String.format("Can my sportscar carry 10 additional passengers: [%b]", sportsCar.canCarry(10)));
+        System.out.println(String.format("Can my sportscar carry 25 additional passengers: [%b]", sportsCar.canCarry(25)));
+        System.out.println(String.format("How much fuel is needed for [%d] miles: [%f]", 10, sportsCar.fuelNeeded(10)));
+
+        System.out.println(String.format("Is 5 a factor of 10: [%b]", isFactor(5,10)));
+        System.out.println(String.format("Is 2 a factor of 7: [%b]", isFactor(2,7)));
+        System.out.println("---------------------------------");
+        System.out.println("---VehicleV2 with Constructor----");
+        VehicleV2 myVehicleWithConstructor = new VehicleV2();
+        myVehicleWithConstructor.fuelcap = 16;
+        myVehicleWithConstructor.mpg = 10;
+        myVehicleWithConstructor.passengers = 10;
+        System.out.println(String.format("Passengers: [%d], MPG: [%d], Fuel Capacity: [%d]",
+                myVehicleWithConstructor.passengers, myVehicleWithConstructor.mpg, myVehicleWithConstructor.fuelcap));
+    }
+
+    private static boolean isFactor(int a, int b) {
+        if( (b % a) == 0) {
+            return true;
+        }
+        return false;
     }
 }
 
