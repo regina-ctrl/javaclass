@@ -61,12 +61,9 @@ public class Main {
 
         System.out.println("---------------------------------");
         System.out.println("---obj.VehicleV2 with Constructor----");
-        VehicleV2 myVehicleWithConstructor = new VehicleV2();
-        myVehicleWithConstructor.fuelcap = 16;
-        myVehicleWithConstructor.mpg = 10;
-        myVehicleWithConstructor.passengers = 10;
+        VehicleV2 myVehicleWithConstructor = new VehicleV2(10,16,10);
         System.out.println(String.format("Passengers: [%d], MPG: [%d], Fuel Capacity: [%d]",
-                myVehicleWithConstructor.passengers, myVehicleWithConstructor.mpg, myVehicleWithConstructor.fuelcap));
+                myVehicleWithConstructor.numPassengers(), myVehicleWithConstructor.getMpg(), myVehicleWithConstructor.getFuelcap()));
     }
 
     private static boolean isFactor(int a, int b) {
